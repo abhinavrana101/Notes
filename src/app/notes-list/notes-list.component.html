@@ -1,4 +1,30 @@
-<div *ngFor="let n of NotesList">
-    {{n.data.title}}
-
+<div class="container-fluid">
+    <div class="row">
+        <!-- notes list -->
+        <div class="col-2">
+            <div class="row">
+                <div class="col-8 heading">Notes</div>
+                <div class="col-4 list-top">
+                    <i class="bi bi-trash" (click)="deleteNote()"></i>
+                </div>
+                <hr>
+                <div class="col-12" *ngFor="let n of NotesList">
+                    <div class="wrapper"[class.selected]="selectedNote == n.id?true:false" (click)="getNoteContent(n.id)">
+                        <span >{{n.data.title}}</span>
+                        <br>
+                        <span class="date">{{n.data.date|date:'mediumDate'}}</span>
+                    </div>
+                    
+                    <hr>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <!-- notes content -->
+        <div class="col-10">
+            <app-notes-content [noteId]="selectedNote" ></app-notes-content>
+        </div>
+    </div>
 </div>

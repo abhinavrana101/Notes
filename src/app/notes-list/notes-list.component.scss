@@ -1,0 +1,30 @@
+
+.container-fluid{
+
+    background-color: whitesmoke;
+    .row{
+        .col-2{
+            border-right: 1px solid grey;
+            .heading{
+                padding: 10px;
+                
+            }
+            .list-top{
+                text-align: right;
+                padding: 10px;
+            }
+            .date{
+                font-size: 13px;
+            }
+        }
+        .wrapper{
+            padding: 10px;
+            padding-left: 30px;
+            border-radius: 5px;
+        }
+        .selected{
+            background-color:#512D6D;
+            color: white
+        }
+    }
+}
