@@ -1,12 +1,15 @@
 
 .container-fluid{
-
-    background-color: whitesmoke;
+    min-height: 100vh;
+    
+    // background-color: var(--theme);
     .row{
-        .col-2{
-            border-right: 1px solid grey;
+        .col-md-2{
+            // border-right: 1px solid grey;
             .heading{
                 padding: 10px;
+                text-align: center;
+                font-weight: 600;
                 
             }
             .list-top{
@@ -22,9 +25,10 @@
             padding-left: 30px;
             border-radius: 5px;
         }
-        .selected{
-            background-color:#512D6D;
-            color: white
-        }
+        
     }
+}
+
+.alert{
+    display:none;
 }

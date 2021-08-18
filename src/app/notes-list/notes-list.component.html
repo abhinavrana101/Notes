@@ -1,10 +1,20 @@
 <div class="container-fluid">
     <div class="row">
         <!-- notes list -->
-        <div class="col-2">
+        <div class="col-md-2 col-12" *ngIf="showParent">
             <div class="row">
-                <div class="col-8 heading">Notes</div>
-                <div class="col-4 list-top">
+               
+                <div class="col-2 list-top">
+                  
+                      <i id="nightIcon"(click)="changeTheme()" class="bi bi-moon-stars"></i>
+                      <i id="dayIcon"(click)="changeTheme()" class="bi bi-sun"></i>
+                    
+                </div>
+                <div class="col-6 heading">NOTES</div>
+                <div class="col-2 list-top">
+                    <i class="bi bi-plus-circle" (click)="addNote()"></i>
+                </div>
+                <div class="col-2 list-top">
                     <i class="bi bi-trash" (click)="deleteNote()"></i>
                 </div>
                 <hr>
@@ -23,8 +33,11 @@
         
         
         <!-- notes content -->
-        <div class="col-10">
-            <app-notes-content [noteId]="selectedNote" ></app-notes-content>
+        <div class="col-md-10 col-12" *ngIf="showChild">
+            <app-notes-content  (callParent)="initialiseVar($event)"></app-notes-content>
+        </div>
+        <div class="alert alert-success" id="alertMsg">
+            <strong>Success! Your note has been saved</strong> .
         </div>
     </div>
 </div>

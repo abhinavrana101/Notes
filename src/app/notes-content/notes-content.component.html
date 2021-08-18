@@ -1,12 +1,7 @@
 <div class="row" [class]="fontFamily">
     <div class="col-12">
         <div class="row top-menu">
-            <div class="col-2">
-                <i class="bi bi-plus-circle" (click)="addNote()"></i>
-            </div>
-            <div class="col-1" (click)="checkFormatVal('b')"><b>B</b></div>
-            <div class="col-1" (click)="checkFormatVal('i')"><i>I</i></div>
-            <div class="col-2">
+            <div class="col-md-4 col-6">
                 <select name="font" [(ngModel)]="fontFamily" class="form-control">
                     <option selected disabled value="default">Font Family</option>
                     <option value="serif">Serif</option>
@@ -14,8 +9,11 @@
                     <option value="monospace">Monospace</option>
                 </select>
             </div>
+            <div class="col-1" [class.selected-format]="formatVal == 'b' " (click)="checkFormatVal('b')"><b>B</b></div>
+            <div class="col-1" [class.selected-format]="formatVal == 'i' " (click)="checkFormatVal('i')"><i>I</i></div>
         </div>
     </div>
+   
     
     <div class="col-12 date">{{note.date}}</div>
     <br>

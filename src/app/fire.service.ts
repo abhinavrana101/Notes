@@ -23,8 +23,8 @@ export class FireService {
   // getNoteById(id:string){
   //   return this.afs.collection(`${this.collection}/${id}`).snapshotChanges();
   // }
-  addNote(note:object,id:string){
-    this.afs.collection(this.collection).doc(id).set(note)
+  addNote(note:object){
+    this.afs.collection(this.collection).add(note);
   }
   deleteNote(id:string){
     this.afs.doc(`notes/${id}`).delete()

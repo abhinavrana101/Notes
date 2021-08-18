@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FireService, Notes } from '../fire.service';
 
 @Component({
@@ -6,13 +6,15 @@ import { FireService, Notes } from '../fire.service';
   templateUrl: './notes-content.component.html',
   styleUrls: ['./notes-content.component.scss']
 })
-export class NotesContentComponent implements OnInit,OnChanges {
+export class NotesContentComponent implements OnInit {
   
-  @Input() noteId : string = '';
+  noteId : string = '';
+  @Output() callParent = new EventEmitter<any>();
   lastId : string = '';
   note : Notes ;
   formatVal : string = '';
   fontFamily : string 
+  
   
   constructor(private fire:FireService) {
     this.note =  {title:'',content:'',date:''};
@@ -25,51 +27,33 @@ export class NotesContentComponent implements OnInit,OnChanges {
   ngOnInit(): void {
     
   }
-  ngOnChanges(){
-    
-    this.getNoteDetail()
-  }
+ 
+
+ 
+
   
-  updateLastId(id:string){
-    this.lastId = id
-    console.log(this.lastId);
-    console.log(this.noteId);
-   
-    // else{
-      this.lastId = String(Number(this.lastId) + 1);
-    // }
-  }
-  
-  addNote(){
-     if(this.lastId == ''){ this.lastId = '1'}
-    console.log(this.lastId)
-    this.note.title = "New Note";
-    this.note.date = this.createDate();
-    // console.log(this.note); return;
-    this.fire.addNote(this.note,this.lastId)
-    this.initialiseVar();
-  }
-  
-  getNoteDetail(){
-    this.fire.getNoteById(this.noteId).subscribe(res=>{
+  getNoteDetail(id:string){
+    console.log('in note detail')
+    this.initialiseVar()
+
+    this.noteId = id
+     console.log(id)
+    console.log(this.noteId)
+    this.fire.getNoteById(id).subscribe(res=>{
       this.note = res.data() as Notes
     })
   }
   
-  createDate(){
-    // let d = new Date().getDate();
-    // let m = new Date().getMonth();
-    // let
-    return new Date().getMonth()+1 + '/'+ new Date().getDate() + '/'+ new Date().getFullYear();
-    
-    
-  }
+  
   updateNote(){
+    console.log(this.noteId)
     this.fire.updateNote(this.noteId,this.note);
     this.initialiseVar(); 
+    this.callParent.emit();
   }
-
+  
   checkFormatVal(val:string){
+    console.log(val)
     if(val == 'b'){
       this.formatVal = 'b'
     }
@@ -77,9 +61,6 @@ export class NotesContentComponent implements OnInit,OnChanges {
       this.formatVal = 'i'
     }
   }
-
-  getFontFamily(){
-
-  }
+  
   
 }

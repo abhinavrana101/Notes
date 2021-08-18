@@ -1,4 +1,106 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body{
+    background-color: #F9F9F9;
+    button,.btn{
+        background-color:#512D6D;
+        color: white
+    }
+    .selected{
+        background-color:#512D6D;
+        color: white
+    }
+    .top-menu{
+        padding:10px;
+        margin-bottom: 5px;
+    }
+    .date{
+        text-align: center;
+        font-size: 13px;
+        color:grey;
+    }
+    .w-100{
+        width: 100%;
+    }
+    textarea{
+        margin-top: 10px;
+        width: 100%;
+        height: 75vh;
+    }
+    .b{
+        font-weight:bold;
+    }
+    .i{
+        font-style: italic;
+    }
+    .serif{font-family: serif;}
+    .sans-serif{font-family: sans-serif;}
+    .monospace{font-family: monospace;}
+    select{
+        background-color: whitesmoke !important;
+        border:none !important;
+        padding:0 !important
+    }
+    #dayIcon{
+        display:none
+    }
+    #nightIcon{
+        display: inline-block;
+    }
+     .selected-format{
+        color: blue;
+    }
+    
+}
+.dark-mode{
+    background-color:#393E46;
+    color:white;
+    button{
+        background-color:#F9F9F9 ;
+        color:#393E46;
+    }
+    .selected{
+        background-color:#F9F9F9;
+        color: #393E46
+    }
+    select{
+        background-color: #393E46 !important;
+        color:white;
+        border:none;
+        padding:0
+    }
+    .top-menu{
+        padding:10px;
+        margin-bottom: 5px;
+    }
+    .date{
+        text-align: center;
+        font-size: 13px;
+        color:grey;
+    }
+    .w-100{
+        width: 100%;
+    }
+    textarea{
+        margin-top: 10px;
+        width: 100%;
+        height: 70vh;
+    }
+    .b{
+        font-weight:bold;
+    }
+    .i{
+        font-style: italic;
+    }
+    .serif{font-family: serif;}
+    .sans-serif{font-family: sans-serif;}
+    .monospace{font-family: monospace;}
+     #dayIcon{
+        display:inline-block
+    }
+    #nightIcon{
+        display: none;
+    }
+}
